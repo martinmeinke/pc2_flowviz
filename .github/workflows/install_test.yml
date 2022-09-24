@@ -41,14 +41,6 @@ jobs:
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
       #----------------------------------------------
-      #       add ros 2 venv
-      #----------------------------------------------
-      - name: add ros 2 venv
-        run: |
-          source .venv/bin/activate
-          add2virtualenv /opt/ros/noetic/lib/python3/dist-packages/
-
-      #----------------------------------------------
       # install dependencies if cache does not exist
       #----------------------------------------------
       - name: Install dependencies
@@ -59,8 +51,16 @@ jobs:
       #----------------------------------------------
       - name: Install library
         run: poetry install --no-interaction
+
       #----------------------------------------------
-      #              run test suite
+      #       add ros 2 venv
+      #----------------------------------------------
+      - name: add ros 2 venv
+        run: |
+          echo "/opt/ros/noetic/lib/python3/dist-packages/" > .venv/lib/python3.9/site-packages/ros.pth
+
+      #----------------------------------------------
+      #              run test suitezzs
       #----------------------------------------------
       - name: Run tests
         run: |
