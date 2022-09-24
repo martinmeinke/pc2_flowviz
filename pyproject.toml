@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "pc2_flowviz"
+version = "0.1.0"
+description = ""
+authors = ["Martin Meinke <meinke.martin@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.23.1"
+PyYAML = "^6.0"
+rospkg = "^1.4.0"
+pycryptodomex = "^3.15.0"
+gnupg = "^2.3.1"
+click = "8.0.4"
+Pillow = "^9.2.0"
+nptyping = "^2.3.1"
+matplotlib = "^3.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+mypy = "^0.971"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
