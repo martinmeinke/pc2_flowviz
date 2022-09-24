@@ -40,11 +40,13 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-      # #----------------------------------------------
-      # #       add ros 2 venv
-      # #----------------------------------------------
-      # - name: add ros 2 venv
-      #   run: add2virtualenv /opt/ros/noetic/lib/python3/dist-packages/
+      #----------------------------------------------
+      #       add ros 2 venv
+      #----------------------------------------------
+      - name: add ros 2 venv
+        run: |
+          source .venv/bin/activate
+          add2virtualenv /opt/ros/noetic/lib/python3/dist-packages/
 
       #----------------------------------------------
       # install dependencies if cache does not exist
