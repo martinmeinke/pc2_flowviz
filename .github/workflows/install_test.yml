@@ -15,7 +15,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.8
       - uses: ros-tooling/setup-ros@v0.4
         with:
           required-ros-distributions: noetic
@@ -57,7 +57,7 @@ jobs:
       #----------------------------------------------
       - name: add ros 2 venv
         run: |
-          echo "/opt/ros/noetic/lib/python3/dist-packages/" > .venv/lib/python3.9/site-packages/ros.pth
+          echo "/opt/ros/noetic/lib/python3/dist-packages/" > .venv/lib/python3.8/site-packages/ros.pth
 
       #----------------------------------------------
       #              run test suitezzs
